@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  flask:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: p1234
+      MYSQL_DB: netflix
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: p1234 
+      MYSQL_DATABASE: netflix
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d  # This will import the .sql file
+
+  phpmyadmin:
+    image: phpmyadmin:latest  # Pull the latest phpMyAdmin image
+    environment:
+      PMA_HOST: mysql         # Connect to the 'mysql' service
+      PMA_USER: root          # Use the MySQL root user
+      PMA_PASSWORD: p1234  # Password for the root user
+    ports:
+      - "8081:80"             # Expose phpMyAdmin on port 8081
+    depends_on:
+      - mysql                 # Ensure MySQL starts first
+
+volumes:
+  mysql-data:
