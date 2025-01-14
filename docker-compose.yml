@@ -23,6 +23,7 @@ services:
     volumes:
       - ./init-db:/docker-entrypoint-initdb.d  # This will import the .sql file
 
+
   phpmyadmin:
     image: phpmyadmin:latest  # Pull the latest phpMyAdmin image
     environment:
@@ -34,6 +35,8 @@ services:
       - "8081:80"             # Expose phpMyAdmin on port 8081
     depends_on:
       - mysql                 # Ensure MySQL starts first
+    volumes:
+      - ./phpmyadmin/config.inc.php:/etc/phpmyadmin/config.inc.php
 
 volumes:
   mysql-data:
