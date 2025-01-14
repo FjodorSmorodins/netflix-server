@@ -29,6 +29,7 @@ services:
       PMA_HOST: mysql         # Connect to the 'mysql' service
       PMA_USER: root          # Use the MySQL root user
       PMA_PASSWORD: p1234  # Password for the root user
+      PMA_AUTH_TYPE: cookie
     ports:
       - "8081:80"             # Expose phpMyAdmin on port 8081
     depends_on:
