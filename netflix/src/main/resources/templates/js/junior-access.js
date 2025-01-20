@@ -3,7 +3,7 @@ document.getElementById('loadTable').addEventListener('click', async () => {
     const tableContainer = document.getElementById('tableContainer');
 
     try {
-        const response = await fetch(`http://134.209.199.147:8081/api/${tableName}`);
+        const response = await fetch(`http://134.209.199.147:8082/api/${tableName}`);
         if (!response.ok) {
             throw new Error(`Failed to fetch data for table: ${tableName}`);
         }

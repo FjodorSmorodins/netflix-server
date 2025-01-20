@@ -30,7 +30,7 @@ hdocument.addEventListener("DOMContentLoaded", () => {
     async function loadTableData(tableName) {
         tableContainer.innerHTML = "<p>Loading...</p>";
         try {
-            const data = await fetchAPI(`http://134.209.199.147:8081/api/${tableName}`, "GET");
+            const data = await fetchAPI(`http://134.209.199.147:8082/api/${tableName}`, "GET");
             renderTable(data, tableName);
         } catch (error) {
             console.error("Error loading table data:", error);
@@ -97,7 +97,7 @@ hdocument.addEventListener("DOMContentLoaded", () => {
         const id = crudForm.dataset.id;
         const tableName = crudForm.dataset.table;
         const method = id ? 'PUT' : 'POST';
-        const url = `http://134.209.199.147:8081/api/${tableName}/${id}`;
+        const url = `http://134.209.199.147:8082/api/${tableName}/${id}`;
 
         try {
             const result = await fetchAPI(url, method, data);
@@ -115,7 +115,7 @@ hdocument.addEventListener("DOMContentLoaded", () => {
         if (!confirm("Are you sure you want to delete this entry?")) return;
 
         try {
-            await fetchAPI(`http://134.209.199.147:8081/api/${tableName}/${id}`, "DELETE");
+            await fetchAPI(`http://134.209.199.147:8082/api/${tableName}/${id}`, "DELETE");
             alert("Deleted successfully!");
             loadTableData(tableName);
         } catch (error) {
