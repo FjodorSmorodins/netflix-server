@@ -40,11 +40,10 @@ public class SecurityConfig {
                                 "/api/genre-for-series/**", "/api/preferences/**",
                                 "/api/payments", "/api/users/invite",
                                 "/api/admin/endpoints", "/error",
-                                "/static/**",  // Allow access to static resources
                                 "/css/**",     // Allow access to CSS files
                                 "/js/**",      // Allow access to JavaScript files
                                 "/images/**",
-                                "/index.html"
+                                "/"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
