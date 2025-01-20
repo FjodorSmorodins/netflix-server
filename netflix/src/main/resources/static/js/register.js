@@ -20,7 +20,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     };
 
     try {
-        const response = await fetch('http://localhost:8081/api/users/register', {
+        const response = await fetch('http://134.209.199.147:8081/api/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
-    const apiEndpoint = 'http://localhost:8081/api/users/login';
+    const apiEndpoint = 'http://134.209.199.147:8081/api/users/login';
 
     try {
         const response = await fetch(apiEndpoint, {
