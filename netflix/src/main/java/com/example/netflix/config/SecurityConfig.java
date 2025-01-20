@@ -43,16 +43,13 @@ public class SecurityConfig {
                                 "/static/**",  // Allow access to static resources
                                 "/css/**",     // Allow access to CSS files
                                 "/js/**",      // Allow access to JavaScript files
-                                "/images/**"
+                                "/images/**",
+                                "/index.html"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(exception -> exception
                         .accessDeniedHandler(accessDeniedHandler)
-                )
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .permitAll()
                 )
                 .logout(logout -> logout
                         .permitAll()
