@@ -32,16 +32,16 @@ document.getElementById('loginForm').addEventListener('submit', async function (
             // Redirect based on role
             switch (data.role) {
                 case 'JUNIOR':
-                    window.location.href = 'junior-dashboard.html';
+                    window.location.href = '../html/junior-dashboard.html';
                     break;
                 case 'MEDIOR':
-                    window.location.href = 'medior-dashboard.html';
+                    window.location.href = '../html/medior-dashboard.html';
                     break;
                 case 'SENIOR':
-                    window.location.href = 'senior-dashboard.html';
+                    window.location.href = '../html/senior-dashboard.html';
                     break;
                 case 'VIEWER':
-                    window.location.href = 'viewer-dashboard.html';
+                    window.location.href = '../html/viewer-dashboard.html';
                     break;
                 default:
                     alert('Unexpected role. Please contact support.');
