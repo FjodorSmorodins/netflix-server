@@ -41,7 +41,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                     window.location.href = '/senior';
                     break;
                 case 'VIEWER':
-                    window.location.href = 'viewer';
+                    window.location.href = '/viewer';
                     break;
                 default:
                     alert('Unexpected role. Please contact support.');
