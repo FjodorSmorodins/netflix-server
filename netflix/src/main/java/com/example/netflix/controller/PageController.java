@@ -15,4 +15,9 @@ public class PageController {
     public String showSeniorPage() {
         return "html/senior-dashboard";  // Corresponds to src/main/resources/templates/html/register.html
     }
+
+    @GetMapping("/viewer")
+    public String showViewerPage() {
+        return "html/viewer-dashboard";  // Corresponds to src/main/resources/templates/html/register.html
+    }
 }
