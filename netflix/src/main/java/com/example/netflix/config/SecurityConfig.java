@@ -25,7 +25,7 @@ public class SecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers( "/","/index.html","/css/**", "/js/**", "/images/**");
+        return (web) -> web.ignoring().requestMatchers( "/","/index.html","/css/**", "/js/**", "/img/**");
     }
 
     @Bean
@@ -50,8 +50,7 @@ public class SecurityConfig {
                                 "/api/admin/endpoints", "/error",
                                 "/css/**",     // Allow access to CSS files
                                 "/js/**",      // Allow access to JavaScript files
-                                "/images/**",
-                                "/**"
+                                "/img/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
