@@ -11,17 +11,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Component
-public abstract class IpAddressFilter extends OncePerRequestFilter {
+public class IpAddressFilter extends OncePerRequestFilter {
 
     // Define a set of allowed IP addresses
     private static final Set<String> ALLOWED_IPS = new HashSet<>();
 
     static {
-        ALLOWED_IPS.add("134.209.199.147");
+        ALLOWED_IPS.add("134.209.199.147"); // Replace with your own allowed IPs
     }
 
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
+    @Override
+    protected void doFilterInternal(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, jakarta.servlet.FilterChain filterChain) throws jakarta.servlet.ServletException, IOException {
         String clientIp = request.getRemoteAddr();
 
         if (ALLOWED_IPS.contains(clientIp)) {
@@ -33,4 +33,3 @@ public abstract class IpAddressFilter extends OncePerRequestFilter {
         }
     }
 }
-
