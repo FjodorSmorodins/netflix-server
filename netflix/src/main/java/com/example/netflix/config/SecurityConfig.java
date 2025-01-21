@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())  // Disable CSRF for APIs
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
+                                "/",
                                 "/api/series-view-count/**","/api/users/login",
                                 "/api/languages/**", "/api/genres/**",
                                 "/api/users/register", "/api/users/activate",
@@ -48,7 +49,8 @@ public class SecurityConfig {
                                 "/api/admin/endpoints", "/error",
                                 "/css/**",     // Allow access to CSS files
                                 "/js/**",      // Allow access to JavaScript files
-                                "/images/**"
+                                "/images/**",
+                                "/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
