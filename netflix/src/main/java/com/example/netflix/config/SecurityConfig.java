@@ -50,8 +50,7 @@ public class SecurityConfig {
                                 "/api/payments", "/api/users/invite",
                                 "/api/admin/endpoints", "/error",
                                 "/css/**",     // Allow access to CSS files
-                                "/js/**",      // Allow access to JavaScript files
-                                "/img/**"
+                                "/js/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
