@@ -31,7 +31,7 @@ public class SecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers( "/","/index.html");
+        return (web) -> web.ignoring().requestMatchers( "/","/index.html", "/register");
     }
 
     @Bean
@@ -41,6 +41,7 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/",
                                 "/index.html",
+                                "/register",
                                 "/api/series-view-count/**","/api/users/login",
                                 "/api/languages/**", "/api/genres/**",
                                 "/api/users/register", "/api/users/activate",
