@@ -1,6 +1,5 @@
 package com.example.netflix.config;
 
-import com.example.netflix.security.IpAddressFilter;
 import com.example.netflix.security.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,9 +18,6 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
-    @Autowired
-    private IpAddressFilter ipAddressFilter;
 
     @Autowired
     private JwtFilter jwtFilter;
@@ -65,7 +61,7 @@ public class SecurityConfig {
                 )
                 .logout(LogoutConfigurer::permitAll
                 )
-                .addFilterBefore(ipAddressFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable);
         return http.build();
     }
